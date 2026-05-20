@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CALECIM Professional - Stem Cell Skincare & Haircare</title>
+<!--
+  FONT NOTE FOR SHOPIFY BUILD:
+  The live site uses "GT America" and "GT America Condensed" (licensed, self-hosted).
+  For this prototype we approximate with Inter (body) and condensed sans for headings.
+  In Shopify build, swap for the licensed GT America font files.
+-->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --calecim-pink: #D4456A;
+  --calecim-pink-light: #E8668A;
+  --calecim-pink-subtle: #FDF0F3;
+  --calecim-pink-dark: #B83355;
+  --cream: #FAF7F2;
+  --warm-white: #FEFDFB;
+  --sand: #E8E0D4;
+  --taupe: #B8A99A;
+  --warm-gray: #8A7E74;
+  --charcoal: #2C2825;
+  --deep-brown: #1A1714;
+  --section-pad: clamp(60px, 8vw, 120px);
+  --content-max: 1440px;
+  --font-body: 'Inter', 'GT America', Helvetica, sans-serif;
+  --font-heading: 'Inter', 'GT America Condensed', Helvetica, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--charcoal);
+  background: var(--warm-white);
+  /* BUMPED: base font from ~14px implied to explicit 15px */
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.container { max-width: var(--content-max); margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px); }
+
+/* ── ANNOUNCEMENT ── */
+.announcement {
+  background: var(--calecim-pink);
+  color: #fff;
+  text-align: center;
+  padding: 11px 20px;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+.announcement a { color: #fff; text-decoration: underline; text-underline-offset: 2px; font-weight: 600; }
+
+/* ── HEADER ── */
+header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(254,253,251,0.97);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(232,224,212,0.5);
+  transition: box-shadow 0.3s;
+}
+header.scrolled { box-shadow: 0 2px 40px rgba(0,0,0,0.06); }
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px clamp(20px,4vw,60px);
+  max-width: 1440px; margin: 0 auto;
+}
+.logo img { height: 38px; width: auto; display: block; }
+nav { display: flex; gap: 28px; align-items: center; }
+nav a {
+  text-decoration: none; color: var(--charcoal);
+  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em;
+  text-transform: uppercase; transition: color 0.2s; position: relative;
+}
+nav a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 2px; background: var(--calecim-pink); transition: width 0.3s;
+}
+nav a:hover { color: var(--calecim-pink); }
+nav a:hover::after { width: 100%; }
+.header-actions { display: flex; gap: 20px; align-items: center; }
+.header-actions a {
+  color: var(--charcoal); text-decoration: none; font-size: 0.78rem;
+  letter-spacing: 0.04em; text-transform: uppercase; font-weight: 500; transition: color 0.2s;
+}
+.header-actions a:hover { color: var(--calecim-pink); }
+.nav-pro {
+  background: var(--deep-brown); color: #fff !important;
+  padding: 7px 14px; font-size: 0.72rem !important;
+  letter-spacing: 0.1em !important; font-weight: 600; transition: background 0.2s !important;
+}
+.nav-pro:hover { background: var(--calecim-pink) !important; }
+
+/* ── HERO ── */
+.hero {
+  position: relative; min-height: 88vh;
+  display: flex; align-items: center; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background-image: url('https://calecimprofessional.com/cdn/shop/files/0002_optimised-Home-banner_2025-1-desktop-3_b22bcd47-45cc-4b73-ba7f-e5618d903eaa.jpg');
+  background-size: cover; background-position: center;
+}
+.hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(26,23,20,0.78) 0%, rgba(26,23,20,0.42) 50%, rgba(26,23,20,0.12) 100%);
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: var(--content-max); margin: 0 auto;
+  padding: 0 clamp(20px,4vw,60px); width: 100%;
+}
+.hero-text { max-width: 600px; color: #fff; }
+.hero-label {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-bottom: 20px; font-size: 0.76rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--calecim-pink-light); font-weight: 600;
+}
+.hero-label::before { content: ''; width: 40px; height: 2px; background: var(--calecim-pink); }
+.hero-text h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+  font-weight: 700; line-height: 1.08; margin-bottom: 20px;
+  text-transform: uppercase; letter-spacing: -0.01em;
+}
+.hero-text h1 em { font-style: normal; color: var(--calecim-pink-light); }
+.hero-text p {
+  font-size: 1.05rem; line-height: 1.7;
+  color: rgba(255,255,255,0.85); max-width: 480px;
+  margin-bottom: 32px; font-weight: 300;
+}
+.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* ── BUTTONS ── */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 15px 32px; background: var(--calecim-pink); color: #fff;
+  text-decoration: none; font-size: 0.82rem; letter-spacing: 0.1em;
+  text-transform: uppercase; font-weight: 600; border: 2px solid var(--calecim-pink);
+  cursor: pointer; transition: all 0.3s;
+}
+.btn-primary:hover { background: var(--calecim-pink-dark); border-color: var(--calecim-pink-dark); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(212,69,106,0.3); }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 15px 32px; background: transparent; color: #fff;
+  text-decoration: none; font-size: 0.82rem; letter-spacing: 0.1em;
+  text-transform: uppercase; font-weight: 500; border: 2px solid rgba(255,255,255,0.4);
+  cursor: pointer; transition: all 0.3s;
+}
+.btn-secondary:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+.btn-outline-light {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px; background: transparent; color: #fff;
+  text-decoration: none; font-size: 0.78rem; letter-spacing: 0.1em;
+  text-transform: uppercase; font-weight: 500; border: 2px solid rgba(255,255,255,0.2);
+  transition: all 0.3s;
+}
+.btn-outline-light:hover { border-color: var(--calecim-pink); color: var(--calecim-pink-light); }
+.btn-white {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 36px; background: #fff; color: var(--calecim-pink-dark);
+  text-decoration: none; font-size: 0.82rem; letter-spacing: 0.1em;
+  text-transform: uppercase; font-weight: 600; border: 2px solid #fff; transition: all 0.3s;
+}
+.btn-white:hover { background: transparent; color: #fff; }
+.btn-dark {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 32px; background: var(--deep-brown); color: var(--cream);
+  text-decoration: none; font-size: 0.82rem; letter-spacing: 0.1em;
+  text-transform: uppercase; font-weight: 600; border: 2px solid var(--deep-brown); transition: all 0.3s;
+}
+.btn-dark:hover { background: var(--charcoal); border-color: var(--charcoal); }
+
+/* Hero micro proof */
+.hero-micro-proof {
+  display: flex; gap: 24px; margin-top: 28px;
+  padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.15);
+}
+.micro-stat { text-align: left; }
+.micro-num { font-size: 1.6rem; font-weight: 700; color: #fff; line-height: 1; }
+.micro-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.6); margin-top: 2px; }
+
+/* ── PRESS BAR ── */
+.press-bar {
+  background: #fff; padding: 32px 0;
+  border-bottom: 1px solid var(--sand); overflow: hidden;
+}
+.press-bar-label {
+  text-align: center; font-size: 0.7rem; text-transform: uppercase;
+  letter-spacing: 0.18em; color: var(--taupe); margin-bottom: 20px; font-weight: 500;
+}
+.press-marquee {
+  position: relative; overflow: hidden; width: 100%;
+}
+.press-marquee::before,
+.press-marquee::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none;
+}
+.press-marquee::before { left: 0; background: linear-gradient(to right, #fff 0%, transparent 100%); }
+.press-marquee::after { right: 0; background: linear-gradient(to left, #fff 0%, transparent 100%); }
+.press-track {
+  display: flex; align-items: center; gap: 64px;
+  animation: marquee 30s linear infinite; width: max-content;
+}
+.press-track:hover { animation-play-state: paused; }
+.press-track img {
+  height: 36px; width: auto; flex-shrink: 0;
+  opacity: 0.5; filter: grayscale(100%); transition: all 0.3s;
+}
+.press-track img:hover { opacity: 0.9; filter: grayscale(0%); }
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── TRUST STRIP ── */
+.trust-strip {
+  background: var(--cream); padding: 26px 0; border-bottom: 1px solid var(--sand);
+}
+.trust-inner {
+  display: flex; align-items: center; justify-content: center;
+  gap: clamp(20px,4vw,56px); flex-wrap: wrap;
+}
+.trust-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.8rem; color: var(--warm-gray); letter-spacing: 0.03em; font-weight: 500;
+}
+.trust-item svg { width: 18px; height: 18px; stroke: var(--calecim-pink); fill: none; stroke-width: 1.5; flex-shrink: 0; }
+.trust-divider { width: 1px; height: 20px; background: var(--sand); }
+
+/* ── SECTION COMMON ── */
+section { padding: var(--section-pad) 0; }
+.section-label {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--calecim-pink); font-weight: 600; margin-bottom: 14px;
+}
+.section-label::before { content: ''; width: 24px; height: 2px; background: var(--calecim-pink); }
+.section-title {
+  font-family: var(--font-heading);
+  /* BUMPED: from ~2.8rem max to 3rem */
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  font-weight: 700; line-height: 1.1; margin-bottom: 14px;
+  color: var(--deep-brown); text-transform: uppercase; letter-spacing: -0.01em;
+}
+.section-subtitle {
+  /* BUMPED: from 0.95rem to 1rem */
+  font-size: 1rem; color: var(--warm-gray); max-width: 540px; line-height: 1.7; font-weight: 300;
+}
+.view-all {
+  font-size: 0.8rem; color: var(--charcoal); text-decoration: none;
+  letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500;
+  border-bottom: 2px solid var(--charcoal); padding-bottom: 2px; transition: all 0.2s;
+}
+.view-all:hover { color: var(--calecim-pink); border-color: var(--calecim-pink); }
+
+/* ── PROBLEM/SOLUTION ── */
+.problem-solution { background: var(--warm-white); }
+.ps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,6vw,100px); align-items: center; }
+.ps-visual { border-radius: 4px; aspect-ratio: 4/3; overflow: hidden; position: relative; }
+.ps-visual img { width: 100%; height: 100%; object-fit: cover; }
+.ps-visual .stat-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(0deg, rgba(26,23,20,0.85) 0%, transparent 100%);
+  padding: 60px 24px 24px; display: flex; gap: 24px;
+}
+.stat-overlay .mini-stat { color: #fff; text-align: center; flex: 1; }
+.stat-overlay .ms-num { font-size: 1.5rem; font-weight: 700; line-height: 1; color: var(--calecim-pink-light); }
+.stat-overlay .ms-label { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; opacity: 0.8; }
+.concerns-list { list-style: none; margin: 24px 0; display: grid; gap: 10px; }
+/* BUMPED: concern text from 0.88rem to 0.94rem */
+.concerns-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.94rem; color: var(--charcoal); line-height: 1.5; }
+.concerns-list li svg { width: 18px; height: 18px; stroke: var(--calecim-pink); fill: none; stroke-width: 2; flex-shrink: 0; margin-top: 3px; }
+
+/* ── PRODUCTS ── */
+.products-section { background: var(--cream); }
+.products-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; flex-wrap: wrap; gap: 20px; }
+.products-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+.product-card {
+  background: var(--warm-white); border-radius: 4px; overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s; text-decoration: none;
+  color: inherit; display: block; position: relative;
+}
+.product-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.08); }
+.product-img {
+  aspect-ratio: 1/1;
+  background: linear-gradient(180deg, #f8f5f0 0%, #f0ebe3 100%);
+  display: flex; align-items: center; justify-content: center;
+  padding: 0; position: relative; overflow: hidden;
+}
+.product-img img { width: 85%; object-fit: contain; transform: scale(1.4); transition: transform 0.4s; }
+.product-card:hover .product-img img { transform: scale(1.47); }
+.product-img .badge {
+  position: absolute; top: 12px; left: 12px;
+  background: var(--calecim-pink); color: #fff;
+  font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 4px 10px; font-weight: 600;
+}
+.product-card .quick-add {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: var(--calecim-pink); color: #fff; text-align: center;
+  padding: 12px; font-size: 0.76rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  transform: translateY(100%); transition: transform 0.3s;
+}
+.product-card:hover .quick-add { transform: translateY(0); }
+.product-info { padding: 16px 18px; }
+.product-info .product-benefit {
+  font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--calecim-pink); margin-bottom: 4px; font-weight: 600;
+}
+/* BUMPED: product title from 1rem to 1.06rem */
+.product-info h3 { font-family: var(--font-heading); font-size: 1.06rem; font-weight: 600; margin-bottom: 4px; color: var(--deep-brown); }
+/* BUMPED: product desc from 0.78rem to 0.84rem */
+.product-info .product-desc { font-size: 0.84rem; color: var(--warm-gray); line-height: 1.45; margin-bottom: 10px; }
+/* BUMPED: product price from 0.88rem to 0.94rem */
+.product-info .product-price { font-size: 0.94rem; font-weight: 600; color: var(--charcoal); }
+.product-info .product-price span { font-weight: 300; font-size: 0.76rem; color: var(--warm-gray); margin-left: 2px; }
+.product-stars { display: flex; align-items: center; gap: 4px; margin-bottom: 8px; }
+.product-stars svg { width: 13px; height: 13px; fill: var(--calecim-pink); }
+.product-stars span { font-size: 0.72rem; color: var(--warm-gray); margin-left: 2px; }
+
+/* ── SCIENCE ── */
+.science-section { background: var(--deep-brown); color: #fff; }
+.science-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,5vw,80px); align-items: center; }
+.science-section .section-label { color: var(--calecim-pink-light); }
+.science-section .section-label::before { background: var(--calecim-pink); }
+.science-section .section-title { color: #fff; }
+.science-section .section-subtitle { color: var(--taupe); }
+/* BUMPED: science body text from 0.9rem to 0.95rem */
+.science-text p { color: var(--sand); font-size: 0.95rem; line-height: 1.8; margin-top: 16px; font-weight: 300; }
+.science-visual { border-radius: 4px; overflow: hidden; }
+.science-visual img { width: 100%; height: auto; display: block; }
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+.stat-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(212,69,106,0.15);
+  border-radius: 4px; padding: 18px 16px; text-align: center; transition: all 0.3s;
+}
+.stat-card:hover { border-color: rgba(212,69,106,0.4); background: rgba(212,69,106,0.05); }
+.stat-card .stat-number { font-size: 2.2rem; color: var(--calecim-pink-light); font-weight: 700; line-height: 1; margin-bottom: 4px; }
+.stat-card .stat-label { font-size: 0.8rem; color: var(--taupe); line-height: 1.4; }
+.stat-card .stat-context { font-size: 0.66rem; color: rgba(184,169,154,0.5); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.08em; }
+.science-cta { margin-top: 28px; display: flex; gap: 12px; }
+
+/* ── DOCTOR TESTIMONIAL ── */
+.testimonials-section { background: var(--calecim-pink-subtle); text-align: center; padding: 64px 0; }
+.testimonials-section .section-label { justify-content: center; }
+.testimonials-section .section-label::before { display: none; }
+.testimonial-card { max-width: 740px; margin: 32px auto 0; }
+/* BUMPED: testimonial quote font */
+.testimonial-card blockquote { font-size: clamp(1.3rem,2.2vw,1.8rem); font-weight: 300; font-style: italic; line-height: 1.5; color: var(--deep-brown); margin-bottom: 20px; }
+.testimonial-card .attribution { font-size: 0.88rem; color: var(--charcoal); font-weight: 600; }
+.testimonial-card .attribution span { display: block; font-weight: 300; color: var(--warm-gray); font-size: 0.82rem; margin-top: 2px; }
+.testimonial-dots { display: flex; gap: 8px; justify-content: center; margin-top: 24px; }
+.testimonial-dots button { width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid var(--calecim-pink); background: transparent; cursor: pointer; transition: all 0.3s; padding: 0; }
+.testimonial-dots button.active { background: var(--calecim-pink); width: 24px; border-radius: 4px; }
+
+/* ── ROUTINE BUILDER ── */
+.routine-section { background: var(--warm-white); }
+.routine-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(40px,6vw,80px); align-items: center; }
+.routine-steps { display: grid; gap: 16px; }
+.routine-step {
+  display: flex; gap: 16px; padding: 18px 20px;
+  background: var(--cream); border-radius: 4px;
+  border-left: 3px solid transparent; transition: all 0.3s; cursor: pointer;
+}
+.routine-step:hover { border-left-color: var(--calecim-pink); background: #fff; }
+.routine-step .step-num { font-size: 1.5rem; color: var(--calecim-pink); font-weight: 700; line-height: 1; flex-shrink: 0; width: 28px; }
+/* BUMPED: step title from 0.92rem to 0.96rem */
+.routine-step .step-content h4 { font-size: 0.96rem; font-weight: 600; margin-bottom: 3px; color: var(--deep-brown); }
+/* BUMPED: step desc from 0.78rem to 0.84rem */
+.routine-step .step-content p { font-size: 0.84rem; color: var(--warm-gray); line-height: 1.5; }
+.routine-step .step-price { font-size: 0.84rem; color: var(--charcoal); font-weight: 600; margin-top: 4px; }
+.bundle-savings {
+  background: var(--calecim-pink-subtle); border: 1px solid rgba(212,69,106,0.15);
+  border-radius: 4px; padding: 16px 20px; margin-top: 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.bundle-savings .savings-icon {
+  width: 36px; height: 36px; background: var(--calecim-pink); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  color: #fff; font-size: 0.72rem; font-weight: 700;
+}
+.bundle-savings p { font-size: 0.84rem; color: var(--charcoal); }
+.bundle-savings p strong { color: var(--calecim-pink-dark); }
+
+/* ── HAIR SECTION ── */
+.hair-section { background: linear-gradient(135deg, var(--deep-brown) 0%, #2a2520 100%); color: #fff; position: relative; overflow: hidden; }
+.hair-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,5vw,80px); align-items: center; position: relative; z-index: 1; }
+.hair-visual { border-radius: 4px; overflow: hidden; min-height: 480px; }
+.hair-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hair-section .section-label { color: var(--calecim-pink-light); }
+.hair-section .section-label::before { background: var(--calecim-pink); }
+.hair-section .section-title { color: #fff; }
+/* BUMPED: hair text from 0.88rem to 0.94rem */
+.hair-text p { color: var(--sand); font-size: 0.94rem; line-height: 1.7; margin-top: 12px; font-weight: 300; }
+.hair-stats { display: flex; gap: 28px; margin-top: 20px; }
+.hair-stat .hs-number { font-size: 1.6rem; font-weight: 700; color: var(--calecim-pink-light); line-height: 1; }
+.hair-stat .hs-label { font-size: 0.72rem; color: var(--taupe); margin-top: 3px; text-transform: uppercase; letter-spacing: 0.05em; }
+.hair-cta { margin-top: 24px; }
+
+/* ── COMMUNITY SECTION (RESTYLED FROM CURRENT SITE) ── */
+.community-section { background: var(--warm-white); overflow: hidden; }
+.community-header { text-align: center; margin-bottom: 40px; }
+.community-header .section-subtitle { margin: 0 auto; }
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.community-card {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  background: var(--cream);
+}
+.community-card img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.5s;
+}
+.community-card:hover img { transform: scale(1.04); }
+.community-card .cc-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(0deg, rgba(26,23,20,0.88) 0%, rgba(26,23,20,0.0) 100%);
+  padding: 80px 24px 24px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+.community-card .cc-quote {
+  font-size: 1rem; font-style: italic;
+  color: #fff; line-height: 1.45; margin-bottom: 12px;
+  font-weight: 300;
+}
+.community-card .cc-name { font-size: 0.84rem; font-weight: 600; color: #fff; }
+.community-card .cc-title { font-size: 0.74rem; color: rgba(255,255,255,0.7); }
+.community-social {
+  display: flex; gap: 12px; justify-content: center; margin-top: 28px;
+}
+.community-social a {
+  width: 40px; height: 40px; border: 2px solid var(--sand); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.3s; text-decoration: none;
+}
+.community-social a:hover { border-color: var(--calecim-pink); }
+.community-social a svg { width: 16px; height: 16px; fill: var(--charcoal); }
+
+/* ── MEMBER BENEFITS (RESTYLED FROM CURRENT SITE) ── */
+.member-section { background: var(--calecim-pink-subtle); }
+.member-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(40px,6vw,80px); align-items: center;
+}
+.member-visual { border-radius: 4px; overflow: hidden; }
+.member-visual img { width: 100%; height: auto; display: block; }
+.member-perks {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px;
+}
+.member-perk {
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.member-perk .mp-icon {
+  width: 38px; height: 38px; background: #fff; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  border: 1px solid var(--sand);
+}
+.member-perk .mp-icon svg { width: 16px; height: 16px; stroke: var(--calecim-pink); fill: none; stroke-width: 1.5; }
+.member-perk p { font-size: 0.88rem; color: var(--charcoal); font-weight: 500; line-height: 1.4; }
+
+/* ── SUBSCRIPTION ── */
+.subscription-section { background: var(--cream); }
+.sub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,6vw,80px); align-items: center; }
+.sub-perks { display: grid; gap: 14px; margin-top: 20px; }
+.sub-perk { display: flex; gap: 12px; align-items: flex-start; }
+.sub-perk .perk-icon {
+  width: 34px; height: 34px; background: var(--calecim-pink-subtle); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.sub-perk .perk-icon svg { width: 14px; height: 14px; stroke: var(--calecim-pink); fill: none; stroke-width: 1.5; }
+/* BUMPED: sub perk titles from 0.85 to 0.9 */
+.sub-perk h4 { font-size: 0.9rem; font-weight: 600; color: var(--deep-brown); margin-bottom: 1px; }
+.sub-perk p { font-size: 0.82rem; color: var(--warm-gray); line-height: 1.4; }
+.sub-visual {
+  background: var(--warm-white); border-radius: 4px; overflow: hidden;
+  border: 2px solid var(--calecim-pink); position: relative;
+}
+.sub-visual-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+.sub-visual-content { padding: 28px 32px; text-align: center; }
+.sub-visual .save-badge {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--calecim-pink); color: #fff;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 6px 16px;
+}
+.sub-visual-content h3 { font-size: 1.2rem; font-weight: 700; color: var(--deep-brown); margin-bottom: 4px; }
+.sub-visual-content p { font-size: 0.86rem; color: var(--warm-gray); margin-bottom: 16px; }
+
+/* ── JOURNAL ── */
+.journal-section { background: var(--warm-white); }
+.journal-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 36px; flex-wrap: wrap; gap: 20px; }
+.journal-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.journal-card { text-decoration: none; color: inherit; display: block; transition: transform 0.3s; }
+.journal-card:hover { transform: translateY(-2px); }
+.journal-card .journal-img { aspect-ratio: 16/10; border-radius: 4px; margin-bottom: 14px; overflow: hidden; background: var(--cream); }
+.journal-card .journal-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.journal-card:hover .journal-img img { transform: scale(1.04); }
+.journal-card .journal-tag { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--calecim-pink); margin-bottom: 6px; font-weight: 600; }
+/* BUMPED: journal title from 1rem to 1.06rem */
+.journal-card h3 { font-size: 1.06rem; font-weight: 600; line-height: 1.3; color: var(--deep-brown); margin-bottom: 6px; }
+/* BUMPED: journal desc from 0.78rem to 0.84rem */
+.journal-card p { font-size: 0.84rem; color: var(--warm-gray); line-height: 1.5; }
+
+/* ── CTA BANNER ── */
+.cta-banner { background: var(--calecim-pink); padding: 48px 0; text-align: center; }
+.cta-banner h2 { font-family: var(--font-heading); font-size: clamp(1.5rem,2.5vw,2.1rem); font-weight: 700; color: #fff; margin-bottom: 6px; text-transform: uppercase; }
+.cta-banner p { font-size: 0.94rem; color: rgba(255,255,255,0.85); margin-bottom: 20px; }
+
+/* ── NEWSLETTER ── */
+.newsletter { background: var(--warm-white); padding: 48px 0; text-align: center; border-top: 1px solid var(--sand); }
+.newsletter h3 { font-size: 1.4rem; font-weight: 700; color: var(--deep-brown); margin-bottom: 4px; text-transform: uppercase; }
+.newsletter .incentive { display: inline-block; background: var(--calecim-pink-subtle); color: var(--calecim-pink-dark); font-size: 0.76rem; font-weight: 600; padding: 4px 14px; margin-bottom: 12px; letter-spacing: 0.06em; }
+.newsletter p { font-size: 0.88rem; color: var(--warm-gray); margin-bottom: 18px; }
+.newsletter-form { display: flex; gap: 0; max-width: 460px; margin: 0 auto; }
+.newsletter-form input { flex: 1; padding: 14px 18px; border: 2px solid var(--sand); border-right: none; background: #fff; font-size: 0.86rem; font-family: inherit; color: var(--charcoal); outline: none; transition: border-color 0.2s; }
+.newsletter-form input::placeholder { color: var(--taupe); }
+.newsletter-form input:focus { border-color: var(--calecim-pink); }
+.newsletter-form button { padding: 14px 24px; background: var(--calecim-pink); color: #fff; border: 2px solid var(--calecim-pink); font-size: 0.76rem; letter-spacing: 0.1em; text-transform: uppercase; font-family: inherit; font-weight: 600; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
+.newsletter-form button:hover { background: var(--calecim-pink-dark); border-color: var(--calecim-pink-dark); }
+
+/* ── FOOTER ── */
+footer { background: var(--deep-brown); color: var(--sand); padding: 56px 0 28px; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 40px; }
+.footer-brand .footer-logo { height: 32px; margin-bottom: 14px; filter: brightness(0) invert(1); }
+.footer-brand p { font-size: 0.82rem; color: var(--taupe); line-height: 1.6; max-width: 260px; }
+.footer-social { display: flex; gap: 10px; margin-top: 16px; }
+.footer-social a { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s; text-decoration: none; }
+.footer-social a:hover { border-color: var(--calecim-pink); }
+.footer-social a svg { width: 14px; height: 14px; fill: var(--taupe); }
+.footer-col h4 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em; color: #fff; margin-bottom: 14px; font-weight: 600; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 8px; }
+.footer-col ul a { font-size: 0.82rem; color: var(--taupe); text-decoration: none; transition: color 0.2s; }
+.footer-col ul a:hover { color: var(--calecim-pink-light); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-bottom p { font-size: 0.72rem; color: var(--taupe); }
+.footer-bottom .footer-legal { display: flex; gap: 16px; }
+.footer-bottom .footer-legal a { font-size: 0.72rem; color: var(--taupe); text-decoration: none; }
+.footer-bottom .footer-legal a:hover { color: var(--calecim-pink-light); }
+
+/* ── ANIMATIONS ── */
+.fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .ps-grid, .science-grid, .hair-grid, .routine-grid, .sub-grid, .member-grid { grid-template-columns: 1fr; }
+  .products-grid { grid-template-columns: repeat(2,1fr); }
+  .community-grid { grid-template-columns: repeat(2,1fr); }
+  .journal-grid { grid-template-columns: repeat(2,1fr); }
+  .footer-grid { grid-template-columns: repeat(2,1fr); }
+  .stats-grid { grid-template-columns: repeat(2,1fr); }
+  .member-perks { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .products-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .community-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  .journal-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  nav { display: none; }
+  .trust-inner { flex-direction: column; gap: 12px; }
+  .trust-divider { width: 40px; height: 1px; }
+  .hero-micro-proof { flex-direction: row; gap: 16px; }
+  .hair-stats { flex-wrap: wrap; gap: 16px; }
+  .press-track { gap: 40px; }
+  .press-track img { height: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT -->
+<div class="announcement">
+  Free mini Professional Serum with every purchase - <a href="/collections/product-feed-all">Shop now to claim yours</a>
+</div>
+
+<!-- HEADER -->
+<header id="mainHeader">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="https://calecimprofessional.com/cdn/shop/files/logo-black.png" alt="CALECIM Professional" />
+    </a>
+    <nav>
+      <a href="/collections/skincare">Skincare</a>
+      <a href="/collections/haircare">Haircare</a>
+      <a href="/pages/ptt6-science">The Science</a>
+      <a href="/pages/before-after">Results</a>
+      <a href="/blogs/blog">Journal</a>
+      <a href="/pages/our-story">About</a>
+    </nav>
+    <div class="header-actions">
+      <a href="/pages/pro-directory">Find a Pro</a>
+      <a href="/account">Account</a>
+      <a href="/cart">Cart (0)</a>
+      <a href="https://calecimpro.com/" class="nav-pro">PRO SITE</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-label">Stem Cell Science</div>
+      <h1>Your skin knows how to <em>regenerate.</em> We activate it.</h1>
+      <p>Over 3,000 active proteins from cord-lining stem cells, clinically proven to renew skin and restore hair. Trusted by 5,000+ doctors worldwide.</p>
+      <div class="hero-ctas">
+        <a href="/collections/skincare" class="btn-primary">Shop Skincare</a>
+        <a href="/products/advanced-hair-system" class="btn-secondary">Shop Haircare</a>
+      </div>
+      <div class="hero-micro-proof">
+        <div class="micro-stat"><div class="micro-num">56%</div><div class="micro-label">More elastin</div></div>
+        <div class="micro-stat"><div class="micro-num">83%</div><div class="micro-label">More hyaluronic acid</div></div>
+        <div class="micro-stat"><div class="micro-num">6x</div><div class="micro-label">Skin density</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESS BAR -->
+<div class="press-bar">
+  <div class="press-bar-label">As featured in</div>
+  <div class="press-marquee">
+    <div class="press-track">
+      <img src="https://calecimprofessional.com/cdn/shop/files/Vogue-crop.png" alt="Vogue">
+      <img src="https://calecimprofessional.com/cdn/shop/files/Financial-Times-crop.png" alt="Financial Times">
+      <img src="https://calecimprofessional.com/cdn/shop/files/Bazaar-crop.png" alt="Harper's Bazaar">
+      <img src="https://calecimprofessional.com/cdn/shop/files/Tatler-crop.png" alt="Tatler">
+      <img src="https://calecimprofessional.com/cdn/shop/files/Elle-crop.png" alt="Elle">
+      <img src="https://calecimprofessional.com/cdn/shop/files/The-Telegraph-crop.png" alt="The Telegraph">
+      <img src="https://calecimprofessional.com/cdn/shop/files/Daily-Mail-crop.png" alt="Daily Mail">
+      <img src="https://calecimprofessional.com/cdn/shop/files/Womens-Weekly-crop.png" alt="Women's Weekly">
+      <img src="https://calecimprofessional.com/cdn/shop/files/Straits-Times-crop.png" alt="The Straits Times">
+      <img src="https://calecimprofessional.com/cdn/shop/files/Sheerluxe-crop.png" alt="Sheerluxe">
+      <img src="https://calecimprofessional.com/cdn/shop/files/Aesthetics-Journal-crop.png" alt="Aesthetics Journal">
+      <img src="https://calecimprofessional.com/cdn/shop/files/Business-Times-crop.png" alt="Business Times">
+      <img src="https://calecimprofessional.com/cdn/shop/files/Prime-crop.png" alt="Prime">
+      <!-- duplicate set for seamless loop -->
+      <img src="https://calecimprofessional.com/cdn/shop/files/Vogue-crop.png" alt="Vogue">
+      <img src="https://calecimprofessional.com/cdn/shop/files/Financial-Times-crop.png" alt="Financial Times">
+      <img src="https://calecimprofessional.com/cdn/shop/files/Bazaar-crop.png" alt="Harper's Bazaar">
+      <img src="https://calecimprofessional.com/cdn/shop/files/Tatler-crop.png" alt="Tatler">
+      <img src="https://calecimprofessional.com/cdn/shop/files/Elle-crop.png" alt="Elle">
+      <img src="https://calecimprofessional.com/cdn/shop/files/The-Telegraph-crop.png" alt="The Telegraph">
+      <img src="https://calecimprofessional.com/cdn/shop/files/Daily-Mail-crop.png" alt="Daily Mail">
+      <img src="https://calecimprofessional.com/cdn/shop/files/Womens-Weekly-crop.png" alt="Women's Weekly">
+      <img src="https://calecimprofessional.com/cdn/shop/files/Straits-Times-crop.png" alt="The Straits Times">
+      <img src="https://calecimprofessional.com/cdn/shop/files/Sheerluxe-crop.png" alt="Sheerluxe">
+      <img src="https://calecimprofessional.com/cdn/shop/files/Aesthetics-Journal-crop.png" alt="Aesthetics Journal">
+      <img src="https://calecimprofessional.com/cdn/shop/files/Business-Times-crop.png" alt="Business Times">
+      <img src="https://calecimprofessional.com/cdn/shop/files/Prime-crop.png" alt="Prime">
+    </div>
+  </div>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Clinically Validated</div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>20+ Years of Research</div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>5,000+ Doctors Trust Us</div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>4.5 Stars on Trustpilot</div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Free Express Shipping</div>
+  </div>
+</div>
+
+<!-- PROBLEM / SOLUTION -->
+<section class="problem-solution fade-up">
+  <div class="container">
+    <div class="ps-grid">
+      <div class="ps-visual">
+        <img src="https://calecimprofessional.com/cdn/shop/files/06Homepage-What_makes_us_different-desktop-1200x1200_4d8c25b1-1c5b-4744-8999-7393c78b20c2.jpg" alt="CALECIM PTT-6 stem cell science" />
+        <div class="stat-overlay">
+          <div class="mini-stat"><div class="ms-num">3,000+</div><div class="ms-label">Active proteins</div></div>
+          <div class="mini-stat"><div class="ms-num">PTT-6</div><div class="ms-label">Patented formula</div></div>
+          <div class="mini-stat"><div class="ms-num">20+</div><div class="ms-label">Years research</div></div>
+        </div>
+      </div>
+      <div class="ps-text">
+        <div class="section-label">Why CALECIM</div>
+        <h2 class="section-title">Most skincare treats the surface. We activate renewal from within.</h2>
+        <p class="section-subtitle">PTT-6 signals your cells to naturally produce more collagen, elastin, and hyaluronic acid - the root cause, not just the symptoms.</p>
+        <ul class="concerns-list">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Fine lines and wrinkles visibly reduced</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Skin elasticity and firmness restored</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Post-procedure recovery cut by up to 50%</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Hair density improved in just 6 weeks</li>
+        </ul>
+        <a href="/pages/ptt6-science" class="btn-primary">Learn the Science</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section fade-up">
+  <div class="container">
+    <div class="products-header">
+      <div>
+        <div class="section-label">The Range</div>
+        <h2 class="section-title">Bestsellers</h2>
+        <p class="section-subtitle">Every product powered by our patented PTT-6 stem cell complex.</p>
+      </div>
+      <a href="/collections/product-feed-all" class="view-all">View all products</a>
+    </div>
+    <div class="products-grid">
+      <a href="/products/professional-serum-sg" class="product-card">
+        <div class="product-img">
+          <span class="badge">Bestseller</span>
+          <img src="https://calecimprofessional.com/cdn/shop/files/ICz-7O9p_88d1d6d9-2336-494e-9c35-c7f98ab650b2.png" alt="Professional Serum 5ml" />
+          <div class="quick-add">Quick Add to Cart</div>
+        </div>
+        <div class="product-info">
+          <div class="product-benefit">Reduces fine lines</div>
+          <h3>Professional Serum 5ml</h3>
+          <div class="product-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>(124)</span></div>
+          <p class="product-desc">Highest concentration of PTT-6. Ideal for aging and post-procedure skin.</p>
+          <div class="product-price">From $160.00 <span>AUD</span></div>
+        </div>
+      </a>
+      <a href="/products/multi-action-cream" class="product-card">
+        <div class="product-img">
+          <img src="https://calecimprofessional.com/cdn/shop/files/mVp5XdN_1d77c8a1-76da-42a8-aeaa-8d27d679c177.png" alt="Multi-Action Cream 50g" />
+          <div class="quick-add">Quick Add to Cart</div>
+        </div>
+        <div class="product-info">
+          <div class="product-benefit">Boosts collagen</div>
+          <h3>Multi-Action Cream</h3>
+          <div class="product-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>(89)</span></div>
+          <p class="product-desc">Firms and volumizes skin losing elasticity. AM and PM use.</p>
+          <div class="product-price">From $140.00 <span>AUD</span></div>
+        </div>
+      </a>
+      <a href="/products/restorative-hydration-cream" class="product-card">
+        <div class="product-img">
+          <img src="https://calecimprofessional.com/cdn/shop/files/ROexP5TT.png" alt="Restorative Hydration Cream" />
+          <div class="quick-add">Quick Add to Cart</div>
+        </div>
+        <div class="product-info">
+          <div class="product-benefit">Deep hydration</div>
+          <h3>Restorative Hydration Cream</h3>
+          <div class="product-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>(67)</span></div>
+          <p class="product-desc">Replenishes dry, dull skin with stem cell proteins. AM and PM.</p>
+          <div class="product-price">From $135.00 <span>AUD</span></div>
+        </div>
+      </a>
+      <a href="/products/advanced-hair-system" class="product-card">
+        <div class="product-img">
+          <img src="https://calecimprofessional.com/cdn/shop/files/Hair-Serum-2026.png" alt="Hair Serum" />
+          <div class="quick-add">Quick Add to Cart</div>
+        </div>
+        <div class="product-info">
+          <div class="product-benefit">Hair restoration</div>
+          <h3>Hair Serum</h3>
+          <div class="product-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>(91)</span></div>
+          <p class="product-desc">6-week treatment with clinically validated results. Includes derma stamp.</p>
+          <div class="product-price">$550.00 <span>AUD</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SCIENCE -->
+<section class="science-section fade-up">
+  <div class="container">
+    <div class="science-grid">
+      <div>
+        <div class="section-label">The Science</div>
+        <h2 class="section-title" style="color:#fff;">It's not a miracle. It's PTT-6.</h2>
+        <p class="section-subtitle" style="color:var(--taupe);">Over two decades of stem cell research. One patented breakthrough.</p>
+        <p class="science-text" style="color:var(--sand); font-size:0.95rem; line-height:1.7; margin-top:12px; font-weight:300;">PTT-6 is a blend of proteins naturally secreted from ethically-derived cord-lining stem cells. Unlike topical serums that only work on the surface, PTT-6 penetrates to the deepest layers, activating cellular regeneration and stimulating natural production of collagen, elastin, and hyaluronic acid.</p>
+        <div class="stats-grid" style="margin-top:20px;">
+          <div class="stat-card"><div class="stat-number">56%</div><div class="stat-label">Increase in elastin production</div><div class="stat-context">In-vitro study</div></div>
+          <div class="stat-card"><div class="stat-number">83%</div><div class="stat-label">Increase in hyaluronic acid</div><div class="stat-context">In-vitro study</div></div>
+          <div class="stat-card"><div class="stat-number">24%</div><div class="stat-label">More hair follicle cells</div><div class="stat-context">Clinical trial</div></div>
+          <div class="stat-card"><div class="stat-number">30x</div><div class="stat-label">Decrease in scalp inflammation</div><div class="stat-context">Clinical trial</div></div>
+        </div>
+        <div class="science-cta" style="margin-top:20px; display:flex; gap:12px;">
+          <a href="/pages/ptt6-science" class="btn-primary">Explore the Research</a>
+          <a href="/blogs/research-library" class="btn-outline-light">Clinical Studies</a>
+        </div>
+      </div>
+      <div class="science-visual">
+        <img src="https://calecimprofessional.com/cdn/shop/files/whatis-ptt6.jpg" alt="What is PTT-6" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTOR TESTIMONIAL -->
+<section class="testimonials-section fade-up">
+  <div class="container">
+    <div class="section-label">Trusted by Doctors</div>
+    <div class="testimonial-card" id="testimonialCard">
+      <blockquote id="tQuote">"CALECIM delivers a revolutionary new approach, integrating the healing and regenerative benefits of stem cell science into daily skincare."</blockquote>
+      <div class="attribution">
+        <span id="tAuthor">Dr. Mitchel Goldman</span>
+        <span id="tRole">Double board-certified Dermatologist, pioneer in growth factor skincare</span>
+      </div>
+    </div>
+    <div class="testimonial-dots" id="tDots">
+      <button class="active" data-i="0"></button>
+      <button data-i="1"></button>
+      <button data-i="2"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ROUTINE BUILDER -->
+<section class="routine-section fade-up">
+  <div class="container">
+    <div class="routine-grid">
+      <div>
+        <div class="section-label">Build Your Routine</div>
+        <h2 class="section-title">A complete regimen, simplified</h2>
+        <p class="section-subtitle">Three steps. Powerful science. Visible results in weeks.</p>
+        <div style="margin-top:24px;"><a href="/pages/power-bundle" class="btn-primary">Create Your Bundle & Save</a></div>
+      </div>
+      <div>
+        <div class="routine-steps">
+          <div class="routine-step"><div class="step-num">01</div><div class="step-content"><h4>Professional Serum</h4><p>Apply one pipette to clean skin. The concentrated PTT-6 activates cellular renewal at the deepest layers.</p><div class="step-price">From $160 AUD</div></div></div>
+          <div class="routine-step"><div class="step-num">02</div><div class="step-content"><h4>Multi-Action Cream</h4><p>Layer over serum AM and PM. Boosts collagen and elastin for visible firming and volume.</p><div class="step-price">From $140 AUD</div></div></div>
+          <div class="routine-step"><div class="step-num">03</div><div class="step-content"><h4>Recovery Night Complex</h4><p>Overnight repair. Wake up to hydrated, brighter skin while stem cell proteins work through the night.</p><div class="step-price">$104 AUD</div></div></div>
+        </div>
+        <div class="bundle-savings"><div class="savings-icon">%</div><p><strong>Save up to 15%</strong> when you bundle all three in a Power Bundle. Free shipping included.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HAIR SECTION -->
+<section class="hair-section fade-up">
+  <div class="container">
+    <div class="hair-grid">
+      <div class="hair-visual">
+        <img src="https://calecimprofessional.com/cdn/shop/files/0000_optimised-Home-banner_2025-3-desktop_68fa473c-b5b1-4e06-80b4-73cb2843cec8.jpg" alt="CALECIM Hair Serum results" />
+      </div>
+      <div class="hair-text">
+        <div class="section-label">Haircare</div>
+        <h2 class="section-title" style="color:#fff;">The hair loss treatment that works.</h2>
+        <p style="color:var(--taupe); font-size:1rem; line-height:1.7;">Whether it's menopause, androgenetic alopecia, or thinning from stress - visible results in just 6 weeks.</p>
+        <p>A concentrated at-home treatment powered by the same PTT-6 technology trusted by hair restoration specialists worldwide. Applied twice weekly with the supplied derma stamp.</p>
+        <div class="hair-stats">
+          <div class="hair-stat"><div class="hs-number">24%</div><div class="hs-label">More follicle cells</div></div>
+          <div class="hair-stat"><div class="hs-number">30x</div><div class="hs-label">Less inflammation</div></div>
+          <div class="hair-stat"><div class="hs-number">6 wks</div><div class="hs-label">To visible results</div></div>
+        </div>
+        <div class="hair-cta"><a href="/products/advanced-hair-system" class="btn-primary">Shop Hair Serum - $550 AUD</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY (RESTYLED) -->
+<section class="community-section fade-up">
+  <div class="container">
+    <div class="community-header">
+      <div class="section-label" style="justify-content:center;">CALECIM Community</div>
+      <h2 class="section-title" style="text-align:center;">Trusted by specialists. Loved by skin.</h2>
+    </div>
+    <div class="community-grid">
+      <div class="community-card">
+        <img src="https://calecimprofessional.com/cdn/shop/files/04Homepage-_Doctors_Quote-desktop-1370x1540.jpg" alt="Dr. Mitchel Goldman" />
+        <div class="cc-overlay">
+          <div class="cc-quote">"A revolutionary new approach to daily skincare."</div>
+          <div class="cc-name">Dr. Mitchel Goldman</div>
+          <div class="cc-title">Board-certified Dermatologist</div>
+        </div>
+      </div>
+      <div class="community-card">
+        <img src="https://calecimprofessional.com/cdn/shop/files/tapan.jpg" alt="Dr. Tapan Patel" />
+        <div class="cc-overlay">
+          <div class="cc-quote">"Remarkable, fast acting reparative benefits for my patients."</div>
+          <div class="cc-name">Dr. Tapan Patel</div>
+          <div class="cc-title">PHI Clinic, London</div>
+        </div>
+      </div>
+      <div class="community-card">
+        <img src="https://calecimprofessional.com/cdn/shop/files/gabi.jpg" alt="Gabi Soares" />
+        <div class="cc-overlay">
+          <div class="cc-quote">"I really feel like I have found the answer to flawless, taut skin!"</div>
+          <div class="cc-name">Gabi Soares</div>
+          <div class="cc-title">@GlamGirlGabi</div>
+        </div>
+      </div>
+    </div>
+    <div class="community-social">
+      <a href="https://www.facebook.com/calecimprofessional/" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      <a href="https://www.instagram.com/calecimprofessional/" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="var(--charcoal)" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="var(--charcoal)" stroke-width="1.5"/></svg></a>
+      <a href="https://www.youtube.com/channel/UCY7tcZR1yh1P1eqQTZgdZGw" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.35 29 29 0 0 0-.46-5.33zM9.75 15.02V8.48l5.75 3.27-5.75 3.27z"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBER BENEFITS (RESTYLED) -->
+<section class="member-section fade-up">
+  <div class="container">
+    <div class="member-grid">
+      <div class="member-visual">
+        <img src="https://calecimprofessional.com/cdn/shop/files/memberbenefits-1200x1200.jpg" alt="MyCALECIM Rewards Club - member holding product" />
+      </div>
+      <div>
+        <div class="section-label">MyCALECIM Rewards Club</div>
+        <h2 class="section-title">Member Benefits</h2>
+        <p class="section-subtitle">Join now and treat yourself to full-size products, generous discounts, exclusive launch promos and more.</p>
+        <div class="member-perks">
+          <div class="member-perk"><div class="mp-icon"><svg viewBox="0 0 24 24"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div><p>Full-size products available for free</p></div>
+          <div class="member-perk"><div class="mp-icon"><svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><p>Generous discount vouchers</p></div>
+          <div class="member-perk"><div class="mp-icon"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></div><p>Try the full range on us</p></div>
+          <div class="member-perk"><div class="mp-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><p>Rewarded for referring a friend</p></div>
+          <div class="member-perk"><div class="mp-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><p>Exclusive online events</p></div>
+          <div class="member-perk"><div class="mp-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><p>Product sampling programmes</p></div>
+        </div>
+        <div style="margin-top:24px;"><a href="/pages/rewards" class="btn-primary">Join Now</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBSCRIPTION -->
+<section class="subscription-section fade-up">
+  <div class="container">
+    <div class="sub-grid">
+      <div>
+        <div class="section-label">Auto-Replenish</div>
+        <h2 class="section-title">Never run out. Save every time.</h2>
+        <p class="section-subtitle">Subscribe and get products delivered automatically with savings on every order.</p>
+        <div class="sub-perks">
+          <div class="sub-perk"><div class="perk-icon"><svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div><h4>Save 20% on every order</h4><p>Automatic discount at checkout</p></div></div>
+          <div class="sub-perk"><div class="perk-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div><h4>Free express delivery</h4><p>On your schedule, to your door</p></div></div>
+          <div class="sub-perk"><div class="perk-icon"><svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M9 12l2 2 4-4"/></svg></div><div><h4>Completely flexible</h4><p>Pause, adjust, or cancel anytime</p></div></div>
+        </div>
+        <div style="margin-top:24px;"><a href="/pages/auto-replenish" class="btn-primary">Set Up Auto-Replenish</a></div>
+      </div>
+      <div class="sub-visual">
+        <span class="save-badge">Best Value</span>
+        <img src="https://calecimprofessional.com/cdn/shop/files/08Homepage-Subscription01-desktop-1200x1200.jpg" alt="CALECIM Auto-Replenish subscription" class="sub-visual-img" />
+        <div class="sub-visual-content">
+          <h3>Save 20% + Earn Rewards</h3>
+          <p>Earn CALECIM Coins towards free full-size products</p>
+          <a href="/pages/rewards" class="btn-primary" style="width:100%;justify-content:center;">Join Rewards Club</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNAL -->
+<section class="journal-section fade-up">
+  <div class="container">
+    <div class="journal-header">
+      <div><div class="section-label">The Journal</div><h2 class="section-title">Expert Insights</h2></div>
+      <a href="/blogs/blog" class="view-all">All articles</a>
+    </div>
+    <div class="journal-grid">
+      <a href="/blogs/blog/menopause-hormones-and-hair-loss-why-it-occurs-and-what-to-do-about-it" class="journal-card">
+        <div class="journal-img"><img src="https://calecimprofessional.com/cdn/shop/articles/blog-banner_585a341d-30f3-4b6d-ac7c-318a6cab0eb4.jpg" alt="Menopause and hair loss" /></div>
+        <div class="journal-tag">Hair</div>
+        <h3>Menopause, hormones and hair loss: why it occurs and what to do</h3>
+        <p>The connection between hormonal changes and thinning - and effective solutions.</p>
+      </a>
+      <a href="/blogs/blog/stem-cell-skincare-for-damaged-and-aging-skin" class="journal-card">
+        <div class="journal-img"><img src="https://calecimprofessional.com/cdn/shop/articles/blog-banner_c7b4702b-3e66-419a-a4aa-e9f479a8a1ae.jpg" alt="PTT-6 skin repair" /></div>
+        <div class="journal-tag">Skin</div>
+        <h3>How can PTT-6 repair damaged and aging skin?</h3>
+        <p>The cellular mechanisms behind stem cell-powered skin regeneration.</p>
+      </a>
+      <a href="/blogs/blog/growth-factors-and-exosomes-how-they-work-in-skincare-and-haircare" class="journal-card">
+        <div class="journal-img"><img src="https://calecimprofessional.com/cdn/shop/files/05Homepage-Featured_Banner-desktop-2740x1200.jpg" alt="Growth factors and exosomes" /></div>
+        <div class="journal-tag">Science</div>
+        <h3>Growth factors and exosomes: how they work</h3>
+        <p>Breaking down the active ingredients driving real clinical results.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner fade-up">
+  <div class="container">
+    <h2>Not sure where to start?</h2>
+    <p>Find a CALECIM-trained professional near you for a personalized consultation.</p>
+    <a href="/pages/pro-directory" class="btn-white">Find a Professional</a>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <div class="container">
+    <div class="incentive">10% off your first order</div>
+    <h3>Join the CALECIM Community</h3>
+    <p>Expert insights, exclusive offers, and early access to new products.</p>
+    <form class="newsletter-form" onsubmit="event.preventDefault()">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit">Get 10% Off</button>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="https://calecimprofessional.com/cdn/shop/files/logo-black.png" alt="CALECIM Professional" class="footer-logo" />
+        <p>Harnessing 20+ years of stem cell research to deliver science-backed skincare and haircare that activates your body's natural regeneration.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/calecimprofessional/" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/calecimprofessional/" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>
+          <a href="https://www.youtube.com/channel/UCY7tcZR1yh1P1eqQTZgdZGw" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.35 29 29 0 0 0-.46-5.33zM9.75 15.02V8.48l5.75 3.27-5.75 3.27z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Shop</h4><ul><li><a href="/collections/skincare-only">Skincare</a></li><li><a href="/collections/haircare">Haircare</a></li><li><a href="/pages/power-bundle">Power Bundle</a></li><li><a href="/collections/exclusive-kits">Exclusive Kits</a></li><li><a href="/collections/product-feed-all">Full Range</a></li></ul></div>
+      <div class="footer-col"><h4>Learn</h4><ul><li><a href="/pages/ptt6-science">PTT-6 Science</a></li><li><a href="/blogs/research-library">Clinical Research</a></li><li><a href="/pages/before-after">Before & After</a></li><li><a href="/pages/ingredients-glossary">Ingredients</a></li><li><a href="/blogs/blog">Journal</a></li></ul></div>
+      <div class="footer-col"><h4>About</h4><ul><li><a href="/pages/our-story">Our Story</a></li><li><a href="/blogs/community">Community</a></li><li><a href="/blogs/press">In the News</a></li><li><a href="/pages/pro-directory">Pro Directory</a></li><li><a href="https://calecimpro.com/">Professional Site</a></li></ul></div>
+      <div class="footer-col"><h4>Support</h4><ul><li><a href="/pages/contact">Contact Us</a></li><li><a href="/pages/faq">FAQ</a></li><li><a href="/a/returns">Returns</a></li><li><a href="/pages/rewards">Rewards Club</a></li><li><a href="/pages/auto-replenish">Auto-Replenish</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 CALECIM Professional. All rights reserved.</p>
+      <div class="footer-legal"><a href="/policies/terms-of-service">Terms of Service</a><a href="/policies/privacy-policy">Privacy Policy</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const header = document.getElementById('mainHeader');
+window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 20); });
+
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+const testimonials = [
+  { q: '"CALECIM delivers a revolutionary new approach, integrating the healing and regenerative benefits of stem cell science into daily skincare."', a: 'Dr. Mitchel Goldman', r: 'Double board-certified Dermatologist, pioneer in growth factor skincare' },
+  { q: '"CALECIM has transformed my practice with its remarkable, fast acting reparative benefits."', a: 'Dr. Tapan Patel', r: 'PHI Clinic, London' },
+  { q: '"With the right candidates, I have found CALECIM Hair Serum delivers excellent results even in patients who have tried other treatments."', a: 'Kelly Morrell', r: 'Scalp Technician and Aesthetic Practitioner' }
+];
+let tIdx = 0;
+const tQ = document.getElementById('tQuote'), tA = document.getElementById('tAuthor'), tR = document.getElementById('tRole');
+const dots = document.querySelectorAll('#tDots button');
+tQ.style.transition = 'opacity 0.3s ease';
+function setT(i) {
+  tIdx = i; tQ.style.opacity = 0;
+  setTimeout(() => { tQ.textContent = testimonials[i].q; tA.textContent = testimonials[i].a; tR.textContent = testimonials[i].r; tQ.style.opacity = 1; }, 300);
+  dots.forEach((d, j) => d.classList.toggle('active', j === i));
+}
+dots.forEach(d => d.addEventListener('click', () => setT(parseInt(d.dataset.i))));
+setInterval(() => setT((tIdx + 1) % testimonials.length), 6000);
+</script>
+</body>
+</html>
